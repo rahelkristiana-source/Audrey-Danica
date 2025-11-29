@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web Kolaborasi</title>
+  <link rel="stylesheet" href="peran.css" />
+</head>
+<body>
+
+  <!-- HEADER BANNER -->
+  <header class="banner">
+    <!-- ganti nama file gambar jika beda -->
+    <img src="woi.png" alt="Banner Web Kolaborasi" />
+  </header>
+
+  <!-- MENU BAR -->
+  <nav class="menu">
+
+    <a href="index.html" class="btn menu-btn">Beranda</a>
+
+    
+
+    <!-- SDGs (dengan dropdown contoh) -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="sdgs">SDGs</button>
+      <div class="dropdown-menu" id="sdgs">
+        <a href="SDGs.html" class="dropdown-item">Pengertian</a>
+        <link rel="stylesheet" href="SDGs.html">
+        <a href="pbb.html" class="dropdown-item">Ajakan PBB</a>
+        <link rel="stylesheet" href="pbb.html">
+        
+      </div>
+    </div>
+
+    <!-- KERJA SAMA -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="kerjasama">KERJA SAMA</button>
+      <div class="dropdown-menu" id="kerjasama">
+        <a href="bilateral.html" class="dropdown-item">BILATERAL</a>
+        <link rel="stylesheet" href="bilateral.html">
+        <a href="regional.html" class="dropdown-item">REGIONAL</a>
+        <link rel="stylesheet" href="regional.html">
+        <a href="multilateral.html" class="dropdown-item">MULTILATERAL</a>
+        <link rel="stylesheet" href="kerjasama.html">
+     </div>
+    </div>
+    
+
+    <!-- DAMPAK -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="dampak">ANALISIS</button>
+      <div class="dropdown-menu" id="dampak">
+        <a href="kondisi.html" class="dropdown-item">KONDISI TERKINI</a>
+        <link rel="stylesheet" href="kondisi.html">
+        <a href="tantangan.html" class="dropdown-item">TANTANGAN</a>
+        <link rel="stylesheet" href="tantangan.html">
+        <a href="hambatan.html" class="dropdown-item">HAMBATAN</a>
+        <link rel="stylesheet" href="hambatan.html">
+        <a href="peran.html" class="dropdown-item">PERAN MASYARAKAT</a>
+        <link rel="stylesheet" href="peran.html">
+      </div>
+    </div>
+
+    <!-- NILAI PANCASILA -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="pancasila">SOLUSI</button>
+      <div class="dropdown-menu" id="pancasila">
+        <a href="solusi.html" class="dropdown-item">SOLUSI</a>
+        <link rel="stylesheet" href="solusi.html">
+        <a href="nilai.html" class="dropdown-item">NILAI PANCASILA</a>
+        <link rel="stylesheet" href="nilai.html">
+      </div>
+    </div>
+
+    <!-- REFLEKSI -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="refleksi">TENTANG KAMI</button>
+      <div class="dropdown-menu" id="refleksi">
+        <a href="bio.html" class="dropdown-item">BIODATA DIRI</a>
+        <link rel="stylesheet" href="bio.html">
+        <a href="refleksi.html" class="dropdown-item">REFLEKSI</a>
+        <link rel="stylesheet" href="refleksi.html">
+      </div>
+    </div>
+
+    <!-- DAFTAR PUSTAKA -->
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="pustaka">DAFTAR PUSTAKA</button>
+      <div class="dropdown-menu" id="pustaka">
+        <a href="daftar.html" class="dropdown-item">DAFTAR</a>
+      </div>
+    </div>
+
+  </nav> 
+  
+
+  <!-- MAIN CONTENT -->
+  <section class="container">
+
+    <!-- KOTAK GALERI -->
+    <div class="card">
+      
+      <img src="3r.jpeg" class="image-box" alt="Kerja Sama Foto">
+    </div>
+
+    <!-- KOTAK SALAM REDAKSI -->
+    <div class="card big">
+      <h2 class="title center">Peran Masyarakat</h2>
+      
+
+      <p class="text">
+      Masyarakat memiliki peran strategis dalam konservasi laut Indonesia melalui aksi nyata sehari-hari. Individu dan keluarga dapat mengurangi plastik sekali pakai, menerapkan 3R (reduce, reuse, recycle), serta melaporkan perikanan ilegal via aplikasi citizen science. Komunitas pesisir berpartisipasi aktif dalam restorasi mangrove, pemantauan pantai, dan pengelolaan kawasan konservasi skala kecil melalui dana desa, seperti dalam Proyek Lautra 2025 yang melatih 500+ kelompok masyarakat untuk budidaya perikanan berkelanjutan dan ekowisata.​
+
+Sekolah dan organisasi masyarakat sipil mengadakan kampanye edukasi, advokasi kebijakan, serta kolaborasi dengan pemerintah dalam program ASEAN seperti ENMAPS. Contoh sukses termasuk model konservasi hiu paus di Teluk Saleh yang melibatkan masyarakat lokal, pariwisata lestari, dan pengumpulan data ilmiah, memperkuat pengawasan komunitas dan mendukung target SDG 14 menuju 30% kawasan konservasi laut pada 2030
+      </p>
+
+      
+    </div>
+
+  </section>
+<a href="#" class="back-btn">↑ Kembali ke atas</a>
+  <!-- SCRIPT: Toggle semua dropdown -->
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll(".menu-btn");
+      const menus = document.querySelectorAll(".dropdown-menu");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const id = btn.getAttribute("data-menu");
+          const menu = document.getElementById(id);
+
+          // tutup menu lain
+          menus.forEach(m => {
+            if (m !== menu) m.classList.remove("show");
+          });
+
+          // toggle menu ini
+          menu.classList.toggle("show");
+        });
+      });
+
+      // klik di luar -> tutup semua
+      document.addEventListener("click", () => {
+        menus.forEach(m => m.classList.remove("show"));
+      });
+
+      // esc -> tutup semua
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") menus.forEach(m => m.classList.remove("show"));
+      });
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

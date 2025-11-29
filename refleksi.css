@@ -1,0 +1,126 @@
+/* il.css - styling menu + konten sederhana */
+
+:root{
+  --teal: #f1ebe4;
+  --pink-bg: #afdfee;
+  --orange: #ff9800;
+  --btn-red: #e83b57;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: var(--pink-bg);
+  color: #222;
+}
+
+/* Banner */
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+/* Menu bar */
+.menu {
+  background-color: var(--teal);
+  padding: 14px 18px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+/* tombol umum */
+.btn {
+  background: var(--btn-red);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.menu-btn {
+  min-width: 150px; /* bebas mau 140px, 160px, dll */
+  text-align: center;
+}
+
+/* parent dropdown relatif */
+.dropdown-parent {
+  position: relative;
+}
+
+/* dropdown menu - default tersembunyi */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: var(--teal);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  flex-direction: column;
+  gap: 10px;
+  z-index: 50;
+}
+
+/* tampilkan bila .show */
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* item di dropdown (warna kuning/orange) */
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg,#ffb347,#ff9800);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* gaya konten utama */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 40px 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 350px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.card.big { width: 650px; }
+
+
+
+.center { text-align: center; }
+.text { line-height: 1.6; color:#333; }
+.back-btn { display: inline-block; margin-top: 8px; background:#007bff; color:#fff; padding:8px 14px; border-radius:8px; text-decoration:none; }
+
+/* responsif */
+@media (max-width: 720px) {
+  .menu { gap: 10px; padding: 12px; }
+  .card.big { width: 100%; }
+  .card { width: 100%; }
+  .dropdown-menu { left: 10px; transform: none; right: 10px; min-width: auto; }
+}

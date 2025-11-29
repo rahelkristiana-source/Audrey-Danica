@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web Kolaborasi</title>
+  <link rel="stylesheet" href="il.css" />
+</head>
+<body>
+
+  
+  <header class="banner">
+    
+    <img src="woi.png" alt="Banner Web Kolaborasi" />
+  </header>
+
+  
+  <nav class="menu">
+
+    <a href="index.html" class="btn menu-btn">Beranda</a>
+    
+
+    
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="sdgs">SDGs</button>
+      <div class="dropdown-menu" id="sdgs">
+        <a href="SDGs.html" class="dropdown-item">Pengertian</a>
+        <link rel="stylesheet" href="SDGs.html">
+         <a href="pbb.html" class="dropdown-item">Ajakan PBB</a>
+        <link rel="stylesheet" href="pbb.html">
+        
+      </div>
+    </div>
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="kerjasama">KERJA SAMA</button>
+      <div class="dropdown-menu" id="kerjasama">
+        <a href="bilateral.html" class="dropdown-item">BILATERAL</a>
+        <link rel="stylesheet" href="bilateral.html">
+        <a href="regional.html" class="dropdown-item">REGIONAL</a>
+        <link rel="stylesheet" href="regional.html">
+        <a href="multilateral.html" class="dropdown-item">MULTILATERAL</a>
+        <link rel="stylesheet" href="multilateral.html">
+       
+     </div>
+    </div>
+    
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="dampak">ANALISIS</button>
+      <div class="dropdown-menu" id="dampak">
+        <a href="kondisi.html" class="dropdown-item">KONDISI TERKINI</a>
+        <link rel="stylesheet" href="kondisi.html">
+        <a href="tantangan.html" class="dropdown-item">TANTANGAN</a>
+        <link rel="stylesheet" href="tantangan.html">
+        <a href="hambatan.html" class="dropdown-item">HAMBATAN</a>
+        <link rel="stylesheet" href="hambatan.html">
+        <a href="peran.html" class="dropdown-item">PERAN MASYARAKAT</a>
+        <link rel="stylesheet" href="peran.html">
+      </div>
+    </div>
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="pancasila">SOLUSI</button>
+      <div class="dropdown-menu" id="pancasila">
+        <a href="solusi.html" class="dropdown-item">SOLUSI</a>
+        <link rel="stylesheet" href="solusi.html">
+        <a href="nilai.html" class="dropdown-item">NILAI PANCASILA</a>
+        <link rel="stylesheet" href="nilai.html">
+      </div>
+    </div>
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="refleksi">TENTANG KAMI</button>
+      <div class="dropdown-menu" id="refleksi">
+        <a href="bio.html" class="dropdown-item">BIODATA DIRI</a>
+        <link rel="stylesheet" href="bio.html">
+        <a href="refleksi.html" class="dropdown-item">REFLEKSI</a>
+        <link rel="stylesheet" href="refleksi.html">
+      </div>
+    </div>
+
+    
+    <div class="dropdown-parent">
+      <button class="btn menu-btn" data-menu="pustaka">DAFTAR PUSTAKA</button>
+      <div class="dropdown-menu" id="pustaka">
+        <a href="daftar.html" class="dropdown-item">DAFTAR</a>
+      </div>
+    </div>
+
+  </nav> 
+  
+
+  
+  <section class="container">
+
+    
+    <div class="card">
+      <h2 class="title">Galeri</h2>
+      <p class="subtitle">Mendukung SDGs dengan<br> Kerja Sama Multilateral</p>
+      <img src="pbb.png" class="image-box" alt="Kerja Sama Foto">
+
+    </div>
+
+    
+    <div class="card big">
+      <h2 class="title center">Kerjasama multilateral</h2>
+      
+
+      <p class="text">
+        Pada level multilateral, Indonesia berpartisipasi dalam inisiatif PBB untuk SDG 14 sejak 2015 melalui Voluntary National Review (VNR) dan UNSDCF 2026-2030 yang diluncurkan Agustus 2025. Program ini menargetkan konservasi biodiversitas laut melalui MPA dan pengurangan polusi darat (target 14.1, 14.2, 14.3, 14.4), dengan hasil pencapaian 62% indikator SDGs nasional termasuk kemajuan laut seperti pengelolaan stok ikan berkelanjutan. Kolaborasi dengan UNESCO dan UNDP menghasilkan laporan tahunan yang memetakan kontribusi global, termasuk perluasan kawasan konservasi laut Indonesia.
+<p class="text">Kerjasama ini juga mencakup forum High-Level Political Forum (HLPF) PBB, di mana Indonesia melaporkan kemajuan seperti pengurangan marine debris dan restorasi ekosistem, mendukung komitmen global untuk ocean acidification dan overfishing.</p>
+
+      </p>
+
+      
+    </div>
+
+  </section>
+<a href="#" class="back-btn">↑ Kembali ke atas</a>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll(".menu-btn");
+      const menus = document.querySelectorAll(".dropdown-menu");
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const id = btn.getAttribute("data-menu");
+          const menu = document.getElementById(id);
+
+          // tutup menu lain
+          menus.forEach(m => {
+            if (m !== menu) m.classList.remove("show");
+          });
+
+          // toggle menu ini
+          menu.classList.toggle("show");
+        });
+      });
+
+      // klik di luar -> tutup semua
+      document.addEventListener("click", () => {
+        menus.forEach(m => m.classList.remove("show"));
+      });
+
+      // esc -> tutup semua
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") menus.forEach(m => m.classList.remove("show"));
+      });
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
